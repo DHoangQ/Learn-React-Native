@@ -17,4 +17,18 @@ export type ScreensList = {
     NewsScreen: undefined;
     SMakemoney: undefined;
     CaseStudy: undefined;
+    Foryou: undefined;
+    MobileApp: undefined;
+    Ecommerce: undefined;
+    KocKol: undefined;
+    Food: undefined;
+    Service: undefined;
+    Entertainment: undefined;
+    Travel: undefined;
+    Game: undefined;
+    OnlineService: undefined;
+    Education: undefined;
+    Realestate: undefined;
+    Beautify: undefined;
+    Telecommunications: undefined;
   };
