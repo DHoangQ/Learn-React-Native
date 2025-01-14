@@ -3,11 +3,9 @@ import {StyleSheet,View,Text,TextInput,TouchableOpacity,Image,ScrollView, ImageB
 
 const Report = () => {
   return (
-    <ImageBackground source={require('../img/bgr.jpg')} style={styles.background} resizeMode="cover">
     <ScrollView contentContainerStyle={styles.container}>
         
     </ScrollView>
-    </ImageBackground>
   );
 };
 

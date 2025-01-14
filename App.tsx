@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, ImageBackground, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -20,9 +20,10 @@ const Tab = createBottomTabNavigator<BottomTabList>();
 const Login: React.FC<{ navigation: any }> = ({ navigation }) => {
   return (
     <ImageBackground source={require('./img/bgr.jpg')} style={styles.background} resizeMode="cover">
+    <ScrollView>
       <View>
         <TouchableOpacity style={styles.XButton} onPress={() => navigation.navigate('Tabs')}>
-          <Image source={{ uri: 'https://th.bing.com/th/id/R.a2a73a31d12712dcf715bce5bc5f68ae?rik=ClTWP8NmT8Yxeg&pid=ImgRaw&r=0' }} style={styles.XIcon}/>
+          <Image source={{ uri: 'https://th.bing.com/th/id/R.a2a73a31d12712dcf715bce5bc5f68ae?rik=ClTWP8NmT8Yxeg&pid=ImgRaw&r=0' }} style={styles.XIcon} />
         </TouchableOpacity>
       </View>
       <View style={styles.container}>
@@ -41,19 +42,20 @@ const Login: React.FC<{ navigation: any }> = ({ navigation }) => {
             <Text style={styles.loginText}>Đăng nhập</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.fingerprintButton}>
-            <Image source={{ uri: 'https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-fingerprint-icon-cartoon-design-image_1183055.jpg', }} style={styles.fingerprintIcon} />
+            <Image source={{ uri: 'https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-fingerprint-icon-cartoon-design-image_1183055.jpg' }} style={styles.fingerprintIcon} />
           </TouchableOpacity>
         </View>
         <Text style={styles.orText}>Hoặc đăng nhập với</Text>
         <View>
           <TouchableOpacity style={styles.googleButton}>
-            <Image source={{ uri: 'https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1',}} style={styles.googleIcon} />
+            <Image source={{ uri: 'https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1' }} style={styles.googleIcon} />
           </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
           <Text style={styles.registerText}>Đăng ký tài khoản</Text>
         </TouchableOpacity>
       </View>
+    </ScrollView>
     </ImageBackground>
   );
 };
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     alignItems: 'center',
     width: '90%',
-    marginLeft: 23,
+    marginLeft: 30,
     marginTop: 90,
   },
   buttonContainer: {
@@ -219,5 +221,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
 
 export default App;

@@ -1,74 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState } from 'react';
+import {StyleSheet, View, Text, TextInput, TouchableOpacity, ScrollView,} from 'react-native';
+
+interface MyProps {
+  name: string;
+}
+
+const Greeting: React.FC<MyProps> = ({ name }) => {
+  return (
+    <View>
+      <Text style={styles.greetingText}>Welcome, {name}!</Text>
+    </View>
+  );
+};
 
 const Discover = () => {
-  const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
-
-  useEffect(() => {
-    const loadBackgroundImage = async () => {
-      const savedImage = await AsyncStorage.getItem('backgroundImage');
-      if (savedImage) {
-        setBackgroundImage(savedImage);
-      }
-    };
-
-    loadBackgroundImage();
-  }, []);
-
-  const selectImage = async () => {
-    launchImageLibrary(
-      {
-        mediaType: 'photo',
-      },
-      async (response) => {
-        if (response.assets && response.assets.length > 0 && response.assets[0].uri) {
-          const uri = response.assets[0].uri;
-          await AsyncStorage.setItem('backgroundImage', uri);
-          setBackgroundImage(uri);
-        } else {
-          setBackgroundImage(null);
-        }
-      }
-    );
+  const [name, setName] = useState<string>('hoang');
+  const [message, setMessage] = useState<string>('Click');
+  const Enter = () => {
+    setMessage(`${name}, welcome discover tab`);
   };
   return (
-    <ImageBackground
-      source={backgroundImage ? { uri: backgroundImage } : require('../')}
-      style={styles.background}>
-      <View style={styles.container}>
-        <Text style={styles.text}>Chọn Background</Text>
-        <TouchableOpacity style={styles.button} onPress={selectImage}>
-          <Text style={styles.buttonText}>Chọn ảnh</Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Greeting name={name} />
+      <TextInput style={styles.input} placeholder="Nhập tên" value={name} onChangeText={setName}/>
+      <Text style={styles.messageText}>{message}</Text>
+      <TouchableOpacity style={styles.button} onPress={Enter}>
+        <Text style={styles.buttonText}>Enter</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 253, 250, 0)',
+    paddingHorizontal: 20,
+    paddingVertical: 30,
   },
-  text: {
-    fontSize: 20,
-    color: 'rgb(249, 76, 2)',
+  greetingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+  messageText: {
+    fontSize: 18,
+    color: '#555',
+    textAlign: 'center',
     marginBottom: 20,
   },
   button: {
-    backgroundColor: 'rgb(249, 76, 2)',
-    padding: 10,
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 5,
   },
   buttonText: {
-    color: 'white',
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },

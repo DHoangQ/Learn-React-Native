@@ -15,7 +15,7 @@ const NewsScreenScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     { id: 1, image: require('../img/banner.jpg'), link: 'https://event.accesstrade.vn/tetmoneyfest2025' },
     { id: 2, image: require('../img/banner.jpg'), link: 'https://event.accesstrade.vn/tetmoneyfest2025' },
     { id: 3, image: require('../img/banner.jpg'), link: 'https://event.accesstrade.vn/tetmoneyfest2025' },
-  ];
+  ]; 
 
   const [events, setEvents] = useState([
     {
@@ -120,7 +120,6 @@ const Tab = createMaterialTopTabNavigator<ToptabList>();
 
 const NewsScreenletter: React.FC = () => {
   return (
-    <ImageBackground source={require('../img/bgr2.jpg')} style={styles.background} resizeMode="cover">
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://accesstrade.in.th/wp-content/uploads/2021/03/cropped-cropped-cropped-AccesstradeLOGO-01-1-1.png' }} style={styles.logo} />
@@ -155,7 +154,6 @@ const NewsScreenletter: React.FC = () => {
           </Tab.Navigator>
         </View>
       </ScrollView>
-    </ImageBackground>
   );
 };
 

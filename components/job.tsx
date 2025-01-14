@@ -35,7 +35,7 @@ const Food: React.FC = () => (
     <Text style={styles.tabText}>5</Text>
   </View>
 );
-
+ 
 const Service: React.FC = () => (
   <View style={styles.tabScreen}>
     <Text style={styles.tabText}>6</Text>
@@ -92,7 +92,6 @@ const Telecommunications: React.FC = () => (
 
 const Job = () => {
   return (
-    <ImageBackground source={require('../img/bgr2.jpg')} style={styles.background} resizeMode="cover">
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <View style={styles.searchContainer}>
@@ -141,7 +140,6 @@ const Job = () => {
           </Tab.Navigator>
         </View>
       </ScrollView>
-    </ImageBackground>
   );
 };
 

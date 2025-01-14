@@ -31,4 +31,4 @@ export type ScreensList = {
     Realestate: undefined;
     Beautify: undefined;
     Telecommunications: undefined;
-  };
+  }; 

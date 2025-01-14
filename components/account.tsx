@@ -3,11 +3,9 @@ import {StyleSheet,View,Text,TextInput,TouchableOpacity,Image,ScrollView, ImageB
 
 const Account = () => {
   return (
-    <ImageBackground source={require('../img/bgr.jpg')} style={styles.background} resizeMode="cover">
     <ScrollView contentContainerStyle={styles.container}>
         
     </ScrollView>
-    </ImageBackground>
   );
 };
 
