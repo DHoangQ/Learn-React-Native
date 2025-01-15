@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {StyleSheet, View, Text, TextInput, TouchableOpacity, ScrollView,} from 'react-native';
+import {StyleSheet, View, Text, TextInput, TouchableOpacity, ScrollView, ImageBackground,} from 'react-native';
 
 interface MyProps {
   name: string;
@@ -13,13 +13,14 @@ const Greeting: React.FC<MyProps> = ({ name }) => {
   );
 };
 
-const Discover = () => {
+const Discover: React.FC<{ backgroundImage: string | null }> = ({ backgroundImage }) => {
   const [name, setName] = useState<string>('hoang');
   const [message, setMessage] = useState<string>('Click');
   const Enter = () => {
     setMessage(`${name}, welcome discover tab`);
   };
   return (
+    <ImageBackground source={backgroundImage ? { uri: backgroundImage } : undefined} style={styles.background} resizeMode="stretch">
     <ScrollView contentContainerStyle={styles.container}>
       <Greeting name={name} />
       <TextInput style={styles.input} placeholder="Nhập tên" value={name} onChangeText={setName}/>
@@ -28,10 +29,14 @@ const Discover = () => {
         <Text style={styles.buttonText}>Enter</Text>
       </TouchableOpacity>
     </ScrollView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

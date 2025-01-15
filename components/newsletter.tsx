@@ -17,7 +17,7 @@ const NewsScreenScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     { id: 3, image: require('../img/banner.jpg'), link: 'https://event.accesstrade.vn/tetmoneyfest2025' },
   ]; 
 
-  const [events, setEvents] = useState([
+  const [events] = useState([
     {
       id: 1,
       date: '07/01/2025',
@@ -67,7 +67,7 @@ const NewsScreenScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   };
 
   const handleSlidePress = (link: string) => {
-    Linking.openURL(link).catch((err) => console.error('An error occurred', err));
+    Linking.openURL(link).catch((err) => console.error('loi...', err));
   };
 
   return (
@@ -78,7 +78,7 @@ const NewsScreenScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           onScroll={onScroll}
-          scrollEventThrottle={16}
+          scrollEventThrottle={1}
           ref={scrollViewRef}>
           {slides.map((slide) => (
             <TouchableOpacity key={slide.id} style={styles.slide} onPress={() => handleSlidePress(slide.link)}>
@@ -118,8 +118,9 @@ const CaseStudyScreen: React.FC = () => (
 
 const Tab = createMaterialTopTabNavigator<ToptabList>();
 
-const NewsScreenletter: React.FC = () => {
+const Newsletter: React.FC<{ backgroundImage: string | null }> = ({ backgroundImage }) => {
   return (
+    <ImageBackground source={backgroundImage ? { uri: backgroundImage } : undefined} style={styles.background} resizeMode="stretch">
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Image source={{ uri: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://accesstrade.in.th/wp-content/uploads/2021/03/cropped-cropped-cropped-AccesstradeLOGO-01-1-1.png' }} style={styles.logo} />
@@ -154,6 +155,7 @@ const NewsScreenletter: React.FC = () => {
           </Tab.Navigator>
         </View>
       </ScrollView>
+    </ImageBackground>
   );
 };
 
@@ -269,4 +271,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NewsScreenletter;
+export default Newsletter;
