@@ -128,7 +128,7 @@ const TabNavigator: React.FC = () => {
     </Tab.Navigator>
   );
 };
-
+ 
 const App: React.FC = () => {
   return (
     <NavigationContainer>

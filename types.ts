@@ -4,7 +4,7 @@ export type ScreensList = {
     ForgotPassword: undefined;
     Detailevent: undefined;
     Tabs: String;
-  };
+  }; 
   
   export type BottomTabList = {
     Newsletter: undefined;
@@ -12,7 +12,7 @@ export type ScreensList = {
     Job: undefined;
     Report: undefined;
     Account: undefined;
-  };
+  }; 
   export type ToptabList = {
     NewsScreen: undefined;
     SMakemoney: undefined;

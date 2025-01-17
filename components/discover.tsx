@@ -10,7 +10,7 @@ const Greeting: React.FC<MyProps> = ({ name }) => {
     <View>
       <Text style={styles.greetingText}>Welcome, {name}!</Text>
     </View>
-  );
+  ); 
 };
 
 const Discover: React.FC<{ backgroundImage: string | null }> = ({ backgroundImage }) => {

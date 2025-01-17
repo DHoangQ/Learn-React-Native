@@ -90,8 +90,9 @@ const Telecommunications: React.FC = () => (
   </View>
 );
 
-const Job = () => {
+const Job: React.FC<{ backgroundImage: string | null }> = ({ backgroundImage }) => {
   return (
+    <ImageBackground source={backgroundImage ? { uri: backgroundImage } : undefined} style={styles.background} resizeMode="stretch">
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <View style={styles.searchContainer}>
@@ -140,6 +141,7 @@ const Job = () => {
           </Tab.Navigator>
         </View>
       </ScrollView>
+    </ImageBackground>
   );
 };
 
